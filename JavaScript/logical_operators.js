@@ -88,17 +88,24 @@ Some pseudocode as example
 
 switch (expression or variable){
     case choice1:
-        run this code
+        run this code;
         break;
     
     case choice2:
-        run this code instead
+        run this code instead;
         break;
         
     - include as many cases as you want
     
+    case choice3:
+    case choice4: //there can be multiple cases that execute to one block
+        run this code for the two above;
+        break;
+
     default:
-        if none of the above, run this code.*/
+        if none of the above, run this code;
+        
+    Se evalua la expresion y se da el case que sea igual a esta*/
 
 //TERNARY OPERATOR
 
