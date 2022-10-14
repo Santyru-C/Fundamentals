@@ -48,12 +48,18 @@ function checkForWin(playerInput, computerInput) {
 function whoBeatsWho(winner, loser) {
     console.log(winner + " beats " + loser)
 }
-//rock paper scissors
+
+function capitalize(string) {
+    lowCaseString = string.toLowerCase()
+    firstLetterCapitalized = lowCaseString[0].toUpperCase() + lowCaseString.substring(1)
+
+    return firstLetterCapitalized
+}
 
 for (let i = 1; i < 6; i++) {
     console.log("Round " + i);
 
-    let playerChoice = prompt("Choose: ")
+    let playerChoice = capitalize(prompt("Choose: "))
     // let the computer pick a random entry from the array
     let computerChoice = choose()
     
