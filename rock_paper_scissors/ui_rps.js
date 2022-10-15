@@ -5,37 +5,64 @@ const paperBtn = document.querySelector("#paper")
 
 let cpuPoints = 0
 let playerPoints = 0
+let round = 1
 
 // cuando el jugador presiona el boton iniciara una ronda con el valor del propio boton
-rockBtn.addEventListener("click", function() {console.log("hello");});
+rockBtn.addEventListener("click", function() {startRound("Rock")});
+scissorsBtn.addEventListener("click", function() {startRound("Scissors")});
+paperBtn.addEventListener("click", function() {startRound("Paper")});
 
-// startRound(playerChoice)
+function startRound(playerHand) {
+    const cpuHand = cpuPick();
+    console.log(round)
+
+    roundWinner = selectRoundWinner(playerHand, cpuHand);
+    addPoint(roundWinner)
+
+    // si el jugador o la cpu tienen 5 puntos resetear el marcador y mostrar quien gana
+
+    round += 1
+
+    console.log(roundWinner, cpuPoints, playerPoints, cpuHand)
+
+};
+
 function selectRoundWinner(player, cpu) {
     switch (player+cpu) {
         case "RockScissors":
         case "ScissorsPaper":
         case "PaperRock":
-            return "player";
+            return "Player";
 
         case "RockRock":
         case "ScissorsScissors":
         case "PaperPaper":
-            return "draw";
+            return "Draw";
 
         default:
-            return "cpu";
-            
+            return "Cpu";  
     };
 };
+
 function addPoint(roundWinner) {
-    (roundWinner == "Player")? playerPoints += 1: cpuPoints += 1;
+    switch (roundWinner) {
+        case "Player":
+            playerPoints += 1;
+            break;
+        case "Cpu":
+            cpuPoints += 1;
+            break;
+        default:
+            null
+    };
 };
 
 function resetCounter() {
     cpuPoints = 0
     playerPoints = 0
 }
-function consolePick() {
+
+function cpuPick() {
 
     const rps = ["Rock", "Paper", "Scissors"];
     let rndIdx = Math.floor(Math.random() * 3);
@@ -43,3 +70,10 @@ function consolePick() {
 
     return consoleSelection
 };
+
+function resetScore() {
+    cpuPoints = 0;
+    playerPoints = 0; 
+};
+
+//function declareMatchWinner(winner)
