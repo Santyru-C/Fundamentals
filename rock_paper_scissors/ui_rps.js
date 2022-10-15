@@ -10,8 +10,27 @@ let playerPoints = 0
 rockBtn.addEventListener("click", function() {console.log("hello");});
 
 // startRound(playerChoice)
-//selectRoundWinner()
-//addPoint()
+function selectRoundWinner(player, cpu) {
+    switch (player+cpu) {
+        case "RockScissors":
+        case "ScissorsPaper":
+        case "PaperRock":
+            return "player";
+
+        case "RockRock":
+        case "ScissorsScissors":
+        case "PaperPaper":
+            return "draw";
+
+        default:
+            return "cpu";
+            
+    };
+};
+function addPoint(roundWinner) {
+    (roundWinner == "Player")? playerPoints += 1: cpuPoints += 1;
+};
+
 function resetCounter() {
     cpuPoints = 0
     playerPoints = 0
