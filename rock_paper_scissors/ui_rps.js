@@ -12,12 +12,15 @@ rockBtn.addEventListener("click", function() {console.log("hello");});
 // startRound(playerChoice)
 //selectRoundWinner()
 //addPoint()
-//resetCounter()
+function resetCounter() {
+    cpuPoints = 0
+    playerPoints = 0
+}
 function consolePick() {
-    const rps = ["Rock", "Paper", "Scissors"];
 
-    let rndIdx = Math.floor(Math.random() * 2);
+    const rps = ["Rock", "Paper", "Scissors"];
+    let rndIdx = Math.floor(Math.random() * 3);
     let consoleSelection = rps[rndIdx];
 
     return consoleSelection
-}
+};
