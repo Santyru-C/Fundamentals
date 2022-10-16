@@ -20,6 +20,9 @@ function startRound(playerHand) {
     addPoint(roundWinner)
 
     // si el jugador o la cpu tienen 5 puntos resetear el marcador y mostrar quien gana
+    if (playerPoints == 5 || cpuPoints == 5) {
+        playerPoints > cpuPoints? declareMatchWinner("player"): declareMatchWinner("cpu")
+    };
 
     round += 1
 
@@ -76,4 +79,9 @@ function resetScore() {
     playerPoints = 0; 
 };
 
-//function declareMatchWinner(winner)
+function declareMatchWinner(winner) {
+    winner == "player"? console.log("You win"): console.log("You lose");
+
+    playerPoints = 0;
+    cpuPoints = 0;
+};
