@@ -11,9 +11,6 @@ const roundText = document.querySelector("#roundText");
 const playerScore = document.querySelector(".player.score")
 const cpuScore = document.querySelector(".cpu.score")
 
-const resetButton = document.querySelector("#resetbtn")
-resetButton.addEventListener("click", function() {reset()})
-
 let cpuPoints = 0
 let playerPoints = 0
 let round = 1
@@ -39,12 +36,9 @@ function startRound(playerHand) {
 
     round += 1;
 
-    pSelectionDisplay.textContent = playerHand
-    cpuSelectionDisplay.textContent = cpuHand
-    updateScoreDisplay
-
-    console.log(roundWinner, cpuPoints, playerPoints, cpuHand)
-
+    pSelectionDisplay.textContent = playerHand;
+    cpuSelectionDisplay.textContent = cpuHand;
+    updateScoreDisplay();
 };
 
 function selectRoundWinner(player, cpu) {
@@ -126,10 +120,10 @@ function toggleHandButtons() {
 function appendPlayAgainBtn() {
     const body = document.body
     const playAgainBtn = document.createElement("button")
+
     playAgainBtn.textContent = "Play Again"
+    playAgainBtn.addEventListener("click", function() {reset()})
+    playAgainBtn.addEventListener("click", function() {body.removeChild(playAgainBtn)})
 
     body.appendChild(playAgainBtn)    
-}
-
-
-// play again button
+};
