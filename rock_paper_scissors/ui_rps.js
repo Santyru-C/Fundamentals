@@ -33,7 +33,8 @@ function startRound(playerHand) {
 
     if (playerPoints == 5 || cpuPoints == 5) {
         playerPoints > cpuPoints? declareMatchWinner("player"): declareMatchWinner("cpu");
-        toggleHandButtons()
+        toggleHandButtons();
+        appendPlayAgainBtn();
     };
 
     round += 1;
@@ -120,6 +121,14 @@ function toggleHandButtons() {
         button.disabled? button.disabled = false: button.disabled = true;
     };
 
+}
+
+function appendPlayAgainBtn() {
+    const body = document.body
+    const playAgainBtn = document.createElement("button")
+    playAgainBtn.textContent = "Play Again"
+
+    body.appendChild(playAgainBtn)    
 }
 
 
